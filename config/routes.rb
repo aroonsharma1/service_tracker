@@ -1,4 +1,7 @@
 ServiceTracker::Application.routes.draw do
+  
+  root :to => redirect('/static_pages/home')
+  
   get "static_pages/home"
 
   get "static_pages/help"

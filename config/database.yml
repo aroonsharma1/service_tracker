@@ -9,7 +9,7 @@ development:
   database: service_tracker_development
   pool: 5
   timeout: 5000
-  username: aroonsharma
+  username:
   password:
   host: localhost
 
@@ -22,7 +22,7 @@ test:
   pool: 5
   timeout: 5000
   host: localhost
-  username: aroonsharma
+  username:
   password:
   port: 5432
 
