@@ -1,3 +1,17 @@
 <% provide(:title, 'New Service Request')%>
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>New service request</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@service_request) do |f| %>
+	  <%= render 'shared/error_messages'%>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, size: '50x10' %>
+
+      <%= f.label :status %>
+      <%= f.text_field :status %>
+
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

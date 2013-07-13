@@ -1,6 +1,6 @@
 ServiceTracker::Application.routes.draw do
-  get "/service_requests/new"
-  
+  resources :service_requests
+    
   root to: 'static_pages#home'
       
   match 'new_request', to: 'service_requests#new'    
