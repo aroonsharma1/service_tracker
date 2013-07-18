@@ -1,4 +1,6 @@
 <% provide(:title, "Service Request Number #{@service_request[:service_request_number]}")%>
+<ul>Customer Name: <%= @service_request.customer_first_name + " " + @service_request.customer_last_name%></ul>
+<ul>Customer Email: <%= @service_request.customer_email %></ul>
 <ul>Description: <%= @service_request.description %></ul>
 <ul>Status: <%= @service_request.status %></ul>
 <ul>Service Request Number: <%= @service_request.service_request_number %></ul>

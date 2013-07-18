@@ -4,6 +4,15 @@
   <div class="span6 offset3">
     <%= form_for(@service_request) do |f| %>
 	  <%= render 'shared/error_messages'%>
+	  
+	  <%= f.label :customer_first_name %>
+	  <%= f.text_field :customer_first_name %>
+	  
+	  <%= f.label :customer_last_name %>
+	  <%= f.text_field :customer_last_name %>
+	  
+	  <%= f.label :customer_email %>
+	  <%= f.text_field :customer_email %>
 
       <%= f.label :description %>
       <%= f.text_area :description, size: '50x10' %>
