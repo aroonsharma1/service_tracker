@@ -1,1 +1,5 @@
-<%= @service_request.description %>, <%= @service_request.status %>
+<% provide(:title, "Service Request Number #{@service_request[:service_request_number]}")%>
+<ul>Description: <%= @service_request.description %></ul>
+<ul>Status: <%= @service_request.status %></ul>
+<ul>Service Request Number: <%= @service_request.service_request_number %></ul>
+
