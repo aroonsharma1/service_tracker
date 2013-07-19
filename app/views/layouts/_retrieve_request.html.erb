@@ -1,0 +1,18 @@
+<div class="center row">
+	<div class="span6 offset3">
+    <h2>
+      Enter in your email and service request number you would like to look up.
+    </h2>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, length: 30 %>
+
+      <%= f.label :service_request_number %>
+      <%= f.text_field :service_request_number %>
+	  
+      <%= f.submit "Find my Service Request", class: "btn btn-large btn-primary" %>
+
+    <% end %>
+    </div>
+</div>
