@@ -1,11 +1,14 @@
 ServiceTracker::Application.routes.draw do
   resources :service_requests
+  resources :sessions, only: [:new, :create, :destroy]
     
   root to: 'static_pages#home'
       
-  match 'new_request', to: 'service_requests#new'    
+  match '/new_request', to: 'service_requests#new'    
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
+  match '/retrieve_request', to: 'sessions#new' #equivalent to signing in
+  match '/signout', to: 'sessions#destroy', via: :delete #signing out
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

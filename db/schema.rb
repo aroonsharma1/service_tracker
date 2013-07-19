@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718181446) do
+ActiveRecord::Schema.define(:version => 20130719023315) do
 
   create_table "service_requests", :force => true do |t|
     t.string   "description"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130718181446) do
     t.string   "customer_first_name"
     t.string   "customer_last_name"
     t.string   "customer_email"
+    t.string   "remember_token"
   end
 
 end
