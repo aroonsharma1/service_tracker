@@ -16,4 +16,8 @@ module SessionsHelper
   def current_service_request
     @current_service_request ||= ServiceRequest.find_by_remember_token(cookies[:remember_token])
   end
+  
+  def current_service_request?(service_request)
+    service_request == current_service_request
+  end
 end
