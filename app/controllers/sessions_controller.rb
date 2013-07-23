@@ -10,11 +10,12 @@ class SessionsController < ApplicationController
       redirect_to service_request
     else
       flash[:error] = 'Invalid email/service request number combination' # Not quite right!
-      #render 'static_pages/home'
       redirect_to root_path
     end
   end
   
   def destroy
+    sign_out
+    redirect_to root_url
   end
 end

@@ -20,4 +20,9 @@ module SessionsHelper
   def current_service_request?(service_request)
     service_request == current_service_request
   end
+  
+  def sign_out
+    self.current_service_request = nil
+    cookies.delete(:remember_token)
+  end
 end
