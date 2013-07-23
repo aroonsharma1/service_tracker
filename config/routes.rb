@@ -1,9 +1,13 @@
 ServiceTracker::Application.routes.draw do
+  get "administrators/new"
+
   resources :service_requests
   resources :sessions, only: [:new, :create, :destroy]
+  resources :administrator_sessions, only: [:new, :create, :destroy]
     
   root to: 'static_pages#home'
       
+  match '/admin', to: 'static_pages#admin'    
   match '/new_request', to: 'service_requests#new'    
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'

@@ -4,6 +4,9 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'bootstrap-sass', '2.3.2'
 gem 'debugger'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1'
+gem 'lorem'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'

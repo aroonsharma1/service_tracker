@@ -1,7 +1,6 @@
 <% provide(:title, 'Home')%>
 <div class="center hero-unit">
   <h1>College Scooters Service Tracker</h1>
-  <%= link_to "Create new Service Request", new_request_path, class: "btn btn-large btn-primary" %>
+  <%= render '/layouts/retrieve_request'%>
 </div>
-<%= render '/layouts/retrieve_request'%>
 <%= link_to image_tag("College Scooters Logo.jpg", alt: "College Scooters", size: "120x120"), 'http://www.collegescootersmd.com' %>

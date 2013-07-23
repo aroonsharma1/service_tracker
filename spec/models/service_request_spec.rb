@@ -11,6 +11,7 @@
 #  customer_first_name    :string(255)
 #  customer_last_name     :string(255)
 #  customer_email         :string(255)
+#  remember_token         :string(255)
 #
 
 require 'spec_helper'
