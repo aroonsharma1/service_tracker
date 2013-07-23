@@ -1,6 +1,7 @@
 module SessionsHelper
   
   def retrieve(service_request)
+    
     cookies.permanent[:remember_token] = service_request.remember_token
     self.current_service_request = service_request
   end

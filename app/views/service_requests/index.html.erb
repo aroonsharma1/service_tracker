@@ -1,0 +1,11 @@
+<% provide(:title, 'All Service Requests') %>
+<h1>All Service Requests</h1>
+
+<ul class="service-requests">
+  <% @service_requests.each do |service_request| %>
+    <li>
+      <%= link_to service_request.description, service_request %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Create new Service Request", new_request_path, class: "btn btn-large btn-primary"%> 
