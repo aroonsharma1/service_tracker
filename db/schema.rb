@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723203541) do
+ActiveRecord::Schema.define(:version => 20130727023934) do
 
   create_table "administrators", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20130723203541) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "administrators", ["remember_token"], :name => "index_administrators_on_remember_token"
 
   create_table "service_requests", :force => true do |t|
     t.string   "description"

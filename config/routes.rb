@@ -13,6 +13,7 @@ ServiceTracker::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/retrieve_request', to: 'sessions#new' #equivalent to signing in
   match '/signout', to: 'sessions#destroy', via: :delete #signing out
+  match '/adminsignout', to: "administrator_sessions#destroy", via: :delete #signing out admins
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
