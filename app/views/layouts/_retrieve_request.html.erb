@@ -1,18 +1,19 @@
-<div class="center row">
-	<div class="span6 offset3">
-    <h2>
-      Enter in your email and service request number you would like to look up.
-    </h2>
-    <%= form_for(:session, url: sessions_path) do |f| %>
+<div class="hero-unit row">
+	<div class="span6">
+		<h2>Welcome! Enter in your email and service request number you would like to look up.</h2>
+		<div class="center"><%= link_to image_tag("College Scooters Logo.png", size: "120x120"), 'http://www.collegescootersmd.com'%></div>
+	</div>
+	<div class="span4">
+	<%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email, length: 30 %>
+	<ul><%= f.label :email %>
+      	<%= f.text_field :email, length: 30 %></ul>
 
-      <%= f.label :service_request_number %>
-      <%= f.text_field :service_request_number %>
+	<ul><%= f.label :service_request_number %>
+      	<%= f.text_field :service_request_number %></ul>
 	  
-      <%= f.submit "Find my Service Request", class: "btn btn-large btn-primary" %>
-
+    <ul><%= f.submit "Find my Service Request", class: "btn btn-large btn-primary btn-block" %></ul>
     <% end %>
-    </div>
+	</div>
 </div>
+

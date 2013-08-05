@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'pg'
-gem 'bootstrap-sass', '2.3.2'
+gem 'bootstrap-sass'
 gem 'debugger'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'faker', '1.0.1'
+gem 'faker'
 gem 'lorem'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
@@ -22,6 +24,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier', '1.2.3'
+  gem 'jquery-datatables-rails'
 end
 
 gem 'jquery-rails', '2.0.2'

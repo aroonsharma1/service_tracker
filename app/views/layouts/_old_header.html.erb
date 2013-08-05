@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+          <%= link_to "College Scooters Service Tracker", root_path, id: "logo" %>
+          	<nav>
+            	<ul class="nav-collapse pull-right">
+              	  <li><%= link_to "Home", root_path %></li>
+              	  <li><%= link_to "Help", help_path %></li>
+			 	  <li><%= link_to "About", about_path %></li>
+				  <% if adminsigned_in? %>
+				    <li><%= link_to "Sign Out", adminsignout_path, method: "delete" %>
+				  <% end %>
+				  <% if retrieved? %>
+				    <li><%= link_to "Sign Out", signout_path, method: "delete" %>
+				  <% end %>
+            	</ul>
+           </nav>
+        </div>
+    </div>
+</header>

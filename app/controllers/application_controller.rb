@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ServiceRequestsHelper
   include AdministratorSessionsHelper
+  force_ssl
   
   #Force signout to prevent CSRF attacks
   def handle_unverified_request

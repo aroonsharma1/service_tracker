@@ -1,11 +1,27 @@
 <% provide(:title, 'All Service Requests') %>
-<h1>All Service Requests</h1>
 
-<ul class="service-requests">
-  <% @service_requests.each do |service_request| %>
-    <li>
-      <%= link_to service_request.description, service_request %>
-    </li>
-  <% end %>
-</ul>
+	<h1>All Service Requests</h1>
+	
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Service Request Number</th>
+				<th>Customer Name</th>
+				<th>Description</th>
+				<th>Actions</th>			
+			</tr>
+		</thead>
+		<tbody>
+	    	<% @service_requests.each do |service_request| %>
+			<tr>
+				<td><%= link_to service_request.service_request_number, service_request %></td>
+				<td><%= "#{service_request.customer_first_name} #{service_request.customer_last_name}" %></td>
+				<td><%= service_request.description %></td>
+				<td>View	Edit	Delete</td>
+			</tr>
+		</tbody>
+		<% end %>
+	</table>
+	
+	<%= will_paginate %>
 <%= link_to "Create new Service Request", new_request_path, class: "btn btn-large btn-primary"%> 

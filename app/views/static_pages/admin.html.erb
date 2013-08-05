@@ -1,17 +1,17 @@
 <% provide(:title, "Adminstrator Sign In") %>
-<h1>Adminstrator Sign In</h1>
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:administrator_session, url: administrator_sessions_path) do |f| %>
+<div class="row-fluid">
+	<div class="span4 offset4">
+	<h1>Adminstrator Sign In</h1>
+	
+  		 <%= form_for(:administrator_session, url: administrator_sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+   	 	 <%= f.label :email %>
+   	  	 <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      	 <%= f.label :password %>
+     	 <%= f.password_field :password %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+     	 <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+   	  <% end %>
   </div>
 </div>
-

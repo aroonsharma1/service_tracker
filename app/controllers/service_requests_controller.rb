@@ -26,7 +26,7 @@ class ServiceRequestsController < ApplicationController
   end
   
   def index
-    @service_requests = ServiceRequest.all
+    @service_requests = ServiceRequest.paginate(page: params[:page])
   end
   
   private
