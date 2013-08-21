@@ -5,7 +5,7 @@ class CreateRequestFields < ActiveRecord::Migration
       t.boolean :done
       t.string :time
       t.string :date
-      t.integer :service_request_id
+      t.integer :request_form_id
 
       t.timestamps
     end

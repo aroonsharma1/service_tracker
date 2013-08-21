@@ -18,6 +18,7 @@ class ServiceRequestsController < ApplicationController
       serv = compute_serv_num(@service_request)
       @service_request.update_attributes(service_request_number: serv)
       #retrieve @service_request  (admins dont need to be doubly signed in when creating a request)
+      initialize_request_form(@service_request)
       flash[:success] = "Created new service request with new number #{@service_request[:service_request_number]}!"      
       redirect_to @service_request
     else

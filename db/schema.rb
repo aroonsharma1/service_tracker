@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821031949) do
+ActiveRecord::Schema.define(:version => 20130821204233) do
 
   create_table "administrators", :force => true do |t|
     t.string   "name"
@@ -29,9 +29,52 @@ ActiveRecord::Schema.define(:version => 20130821031949) do
     t.boolean  "done"
     t.string   "time"
     t.string   "date"
+    t.integer  "request_form_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "request_forms", :force => true do |t|
+    t.integer  "engine_oil_change"
+    t.integer  "gear_oil_change"
+    t.integer  "check_spark_plug"
+    t.integer  "valve_adjustment"
+    t.integer  "check_oil_screen"
+    t.integer  "tighten_rear_brake"
+    t.integer  "change_spark_plug"
+    t.integer  "check_air_filter"
+    t.integer  "new_fuel_filter"
+    t.integer  "new_transmission_belt"
+    t.integer  "new_transmission_weights"
+    t.integer  "clean_clutches"
+    t.integer  "new_rear_brake"
+    t.integer  "replace_brake_fluild"
+    t.integer  "grease_front_axel"
+    t.integer  "stator"
+    t.integer  "CDI"
+    t.integer  "coil"
+    t.integer  "spark"
+    t.integer  "regulator"
+    t.integer  "solenoid"
+    t.integer  "gauges"
+    t.integer  "wires"
+    t.integer  "carb"
+    t.integer  "fuel_line"
+    t.integer  "jets"
+    t.integer  "choke"
+    t.integer  "fuel_filter"
+    t.integer  "fuel_pump"
+    t.integer  "light_bulb"
+    t.integer  "body_panels"
+    t.integer  "oil"
+    t.integer  "chemicals"
+    t.integer  "other1"
+    t.integer  "other2"
+    t.integer  "other3"
+    t.integer  "other4"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.integer  "service_request_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
   end
 
   create_table "service_requests", :force => true do |t|
