@@ -11,7 +11,8 @@ namespace :db do
                  customer_email: "example@fake.com")
                 
     serv = compute_serv_num(service_request)
-    service_request.update_attributes(service_request_number: serv)             
+    service_request.update_attributes(service_request_number: serv)  
+    initialize_request_form(service_request)          
                  
     99.times do |n|
       description = Lorem::Base.new('words', 10).output
@@ -26,7 +27,8 @@ namespace :db do
                    customer_email: customer_email)
                    
       serv = compute_serv_num(service_request)
-      service_request.update_attributes(service_request_number: serv)                       
+      service_request.update_attributes(service_request_number: serv)  
+      initialize_request_form(service_request)                               
     end
   end
 end
