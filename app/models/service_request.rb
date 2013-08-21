@@ -15,6 +15,7 @@
 #
 
 class ServiceRequest < ActiveRecord::Base
+  has_many :request_fields
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { |service_request| service_request.customer_email = customer_email.downcase }
   before_save :create_remember_token
