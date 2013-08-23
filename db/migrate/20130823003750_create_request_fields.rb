@@ -1,11 +1,12 @@
 class CreateRequestFields < ActiveRecord::Migration
   def change
     create_table :request_fields do |t|
-      t.string :title
-      t.boolean :done
-      t.string :time
+      t.string :name
+      t.string :notes
       t.string :date
-      t.integer :request_form_id
+      t.string :time
+      t.boolean :done
+      t.integer :service_request_id
 
       t.timestamps
     end

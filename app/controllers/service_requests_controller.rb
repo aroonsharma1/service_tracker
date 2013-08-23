@@ -7,6 +7,18 @@ class ServiceRequestsController < ApplicationController
     @service_request = ServiceRequest.find(params[:id])
   end
   
+
+  def update
+    @service_request = ServiceRequest.find(params[:id])
+    @service_request.update_attributes(service_request_params) #note the use of strong parameters here (required gem)
+      flash[:success] = "Service Request Updated"
+      redirect_to @service_request
+  end
+  
+  def edit
+    @service_request = ServiceRequest.find(params[:id])
+  end
+  
   def new
     @service_request = ServiceRequest.new
   end
@@ -40,6 +52,12 @@ class ServiceRequestsController < ApplicationController
   def correct_user
     @service_request = ServiceRequest.find(params[:id])
     redirect_to(root_path) unless current_service_request?(@service_request) || adminsigned_in? 
+  end
+  
+  def service_request_params 
+      params.require(:service_request).permit(:description, :status, :service_request_number, :customer_first_name, 
+                  :customer_last_name, :customer_email, 
+                  :request_fields_attributes => [:id, :notes, :name, :done, :date, :time]) 
   end
     
 end

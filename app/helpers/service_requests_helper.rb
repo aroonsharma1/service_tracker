@@ -21,21 +21,21 @@ module ServiceRequestsHelper
   end
   
   def initialize_request_form(service_request) # This method has no checks right now incase save fails.
-    
-    formToAdd = RequestForm.new
-    formToAdd.service_request_id = service_request.id
-    formToAdd.save
-    
-    tmpRequestField = RequestField.new
-    tmpRequestField.done = false
-    tmpRequestField.request_form_id = formToAdd.id
-    tmpRequestField.save
-    
-    formToAdd.engine_oil_change = tmpRequestField.id
-    
-    #eventually OUTSIDE the loop
-    formToAdd.save
-    
+    @service_request.request_fields.create(:name => "Engine Oil Change", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Gear Oil Change", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Check Spark Plug", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Valve Adjustment", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Check/Replace Oil Screen", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Tighten Rear Brake", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Change spark plug", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Check/Replace Air Filter", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "New Fuel Filter", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "New Transmission Belt", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "New Transmission Weights", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Clean Front/Rear Clutches", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "New Rear Brake", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Replace Brake Fluid", :notes => "", :done => false, :date => "", :time => "")
+    @service_request.request_fields.create(:name => "Grease Front Axel", :notes => "", :done => false, :date => "", :time => "") 
   end
   
 end

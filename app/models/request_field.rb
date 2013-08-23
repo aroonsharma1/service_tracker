@@ -1,4 +1,4 @@
 class RequestField < ActiveRecord::Base
-  belongs_to :request_form
-  attr_accessible :date, :done, :request_form_id, :time, :title
+  belongs_to :service_request
+  attr_accessible :date, :done, :name, :notes, :service_request_id, :time
 end

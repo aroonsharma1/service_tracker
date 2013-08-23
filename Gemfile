@@ -9,6 +9,7 @@ gem 'faker'
 gem 'lorem'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'strong_parameters'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'

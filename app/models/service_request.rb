@@ -15,13 +15,14 @@
 #
 
 class ServiceRequest < ActiveRecord::Base
-  has_many :request_forms
+  has_many :request_fields  #, :dependent => destroy (this doesnt work!)
+  accepts_nested_attributes_for :request_fields
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { |service_request| service_request.customer_email = customer_email.downcase }
   before_save :create_remember_token
   
   attr_accessible :description, :status, :service_request_number, :customer_first_name, 
-                  :customer_last_name, :customer_email
+                  :customer_last_name, :customer_email, :request_fields_attributes
   validates :customer_first_name, presence: true 
   validates :customer_last_name, presence: true
   validates :customer_email, presence: true, format: { with: VALID_EMAIL_REGEX }

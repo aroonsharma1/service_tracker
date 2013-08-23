@@ -1,6 +1,23 @@
-<% provide(:title, "Service Request Number #{@service_request[:service_request_number]}")%>
-<ul>Customer Name: <%= @service_request.customer_first_name + " " + @service_request.customer_last_name%></ul>
-<ul>Customer Email: <%= @service_request.customer_email %></ul>
-<ul>Description: <%= @service_request.description %></ul>
-<ul>Status: <%= @service_request.status %></ul>
-<ul>Service Request Number: <%= @service_request.service_request_number %></ul>
+<div class="row">
+  <div class="span3 offset0">
+    <%= form_for(@service_request) do |f| %>
+	  <%= render 'shared/error_messages'%>
+	  
+	  <%= f.fields_for :request_fields do |builder| %>
+	  <%= builder.text_field :name, :readonly => true, :style => "text-align: Center" %>
+	  <% end %>
+    <% end %>
+  </div>
+  
+  <div class="span3 offset0"> 
+  	<%= form_for(@service_request) do |f| %>
+ 	 <%= render 'shared/error_messages'%>
+  
+  	 <%= f.fields_for :request_fields do |builder| %>
+ 	 <%= builder.text_field :notes %>
+ 	 <% end %>
+	 <%= f.submit "Submit" %>
+  <% end %>
+</div>
+  
+</div>
