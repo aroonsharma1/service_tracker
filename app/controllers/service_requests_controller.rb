@@ -17,6 +17,7 @@ class ServiceRequestsController < ApplicationController
   
   def edit
     @service_request = ServiceRequest.find(params[:id])
+    #eventaully implement changing status of service request here
   end
   
   def new
@@ -28,7 +29,7 @@ class ServiceRequestsController < ApplicationController
 
     if @service_request.save
       serv = compute_serv_num(@service_request)
-      @service_request.update_attributes(service_request_number: serv)
+      @service_request.update_attributes(service_request_number: serv, status: 1) #status for a new service request should be 1 by default. It can be changed from edit action
       #retrieve @service_request  (admins dont need to be doubly signed in when creating a request)
       initialize_request_form(@service_request)
       flash[:success] = "Created new service request with new number #{@service_request[:service_request_number]}!"      
@@ -40,6 +41,12 @@ class ServiceRequestsController < ApplicationController
   
   def index
     @service_requests = ServiceRequest.paginate(page: params[:page])
+  end
+  
+  def destroy
+    ServiceRequest.find(params[:id]).destroy
+    flash[:success] = "Service Request deleted!"
+    redirect_to service_requests_url
   end
   
   private

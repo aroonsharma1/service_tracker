@@ -1,5 +1,5 @@
-<% provide(:title, 'New Service Request')%>
-<h1>New service request</h1>
+<% provide(:title, 'Update Service Request')%>
+<h1>Update Service Request #<%= "#{@service_request.service_request_number}" %> </h1>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@service_request) do |f| %>
@@ -17,7 +17,7 @@
       <%= f.label :description_of_work %>
       <%= f.text_area :description, size: '50x10' %>
 
-      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

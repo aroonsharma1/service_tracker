@@ -7,7 +7,7 @@
 			<tr>
 				<th>Service Request Number</th>
 				<th>Customer Name</th>
-				<th>Description</th>
+				<th>Description of work</th>
 				<th>Actions</th>			
 			</tr>
 		</thead>
@@ -17,7 +17,7 @@
 				<td><%= link_to service_request.service_request_number, service_request %></td>
 				<td><%= "#{service_request.customer_first_name} #{service_request.customer_last_name}" %></td>
 				<td><%= service_request.description %></td>
-				<td>View	Edit	Delete</td>
+				<td><%= link_to "Edit", edit_service_request_path(service_request) %>	<%= link_to "Delete", service_request, method: :delete, data: { confirm: "You sure? This action can't be undone." } %></td>
 			</tr>
 		</tbody>
 		<% end %>

@@ -28,7 +28,7 @@ class ServiceRequest < ActiveRecord::Base
   validates :customer_email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :description, presence: true
   #Tests that the status is non blank and only has values 1, 2, or 3
-  validates :status, presence: true, inclusion: {in: [1, 2, 3], message: "%{value} is not a valid status. Must be 1, 2, or 3" }
+  #validates :status, presence: true, inclusion: {in: [1, 2, 3], message: "%{value} is not a valid status. Must be 1, 2, or 3" }
 
   private
   

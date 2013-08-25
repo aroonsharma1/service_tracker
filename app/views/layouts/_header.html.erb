@@ -8,8 +8,14 @@
       </a>
       <a class="navbar-brand"><%= link_to "College Scooters Service Tracker", root_path, id: "logo" %></a>
       <div class="nav-collapse">
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
+        <ul class="nav pull-right">	
+				  
+  		  <% if adminsigned_in? %>
+            <li><%= link_to "Home", :service_requests %></li>
+  		  <% else %>
+            <li><%= link_to "Home", root_path %></li>
+  		  <% end %>
+		  
           <li><%= link_to "Help", help_path %></li>
           <li><%= link_to "About", about_path %></li>
 		  <% if adminsigned_in? %>
