@@ -1,4 +1,3 @@
-=begin
 require "#{Rails.root}/app/helpers/service_requests_helper"
 include ServiceRequestsHelper
 
@@ -33,4 +32,3 @@ namespace :db do
     end
   end
 end
-=end

@@ -12,6 +12,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% @service_requests = @service_requests.order("id") %>
 	    	<% @service_requests.each do |service_request| %>
 			<tr>
 				<td><%= link_to service_request.service_request_number, service_request %></td>

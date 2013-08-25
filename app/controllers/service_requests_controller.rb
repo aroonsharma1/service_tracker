@@ -2,6 +2,7 @@ class ServiceRequestsController < ApplicationController
   
   before_filter :signed_in_user, only:  [:show]
   before_filter :correct_user,  only: [:show]
+  before_filter :admin_signed_in, only: [:index, :edit, :destroy]
   
   def show
     @service_request = ServiceRequest.find(params[:id])
@@ -54,6 +55,10 @@ class ServiceRequestsController < ApplicationController
   # Before filters
   def signed_in_user
     redirect_to root_path, notice: "Please login using your service request #." unless retrieved? || adminsigned_in?
+  end
+  
+  def admin_signed_in
+    redirect_to root_path, notice: "Not allowed to see index!." unless adminsigned_in?
   end
   
   def correct_user
