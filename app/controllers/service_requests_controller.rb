@@ -5,7 +5,7 @@ class ServiceRequestsController < ApplicationController
   before_filter :admin_signed_in, only: [:index, :edit, :destroy]
   
   def show
-    @service_request = ServiceRequest.find(params[:id])
+    @service_request = ServiceRequest.find(params[:id])    
   end
   
 
