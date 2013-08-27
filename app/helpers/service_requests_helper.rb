@@ -20,7 +20,9 @@ module ServiceRequestsHelper
     return serv
   end
   
-  def initialize_request_form(service_request) # This method has no checks right now incase save fails.
+  def initialize_request_form(service_request)
+    
+    #Fields for the table
     service_request.request_fields.create(:name => "Engine Oil Change", :notes => "", :done => false, :date => "", :time => "")
     service_request.request_fields.create(:name => "Gear Oil Change", :notes => "", :done => false, :date => "", :time => "")
     service_request.request_fields.create(:name => "Check Spark Plug", :notes => "", :done => false, :date => "", :time => "")
@@ -35,7 +37,37 @@ module ServiceRequestsHelper
     service_request.request_fields.create(:name => "Clean Front/Rear Clutches", :notes => "", :done => false, :date => "", :time => "")
     service_request.request_fields.create(:name => "New Rear Brake", :notes => "", :done => false, :date => "", :time => "")
     service_request.request_fields.create(:name => "Replace Brake Fluid", :notes => "", :done => false, :date => "", :time => "")
-    service_request.request_fields.create(:name => "Grease Front Axel", :notes => "", :done => false, :date => "", :time => "") 
+    service_request.request_fields.create(:name => "Grease Front Axel", :notes => "", :done => false, :date => "", :time => "")
+    
+    #Checkboxes
+    #Electrical:
+    service_request.request_fields.create(:name => "Stator:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "CDI:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Coil:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Spark:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Regulator:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Solenoid:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Gauges:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Wires:", :notes => "", :done => false, :date => "", :time => "")
+    
+    #Fuel/Air
+    service_request.request_fields.create(:name => "Carb:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Fuel Line:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Jet(s):", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Choke:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Fuel Filter:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Fuel Pump:", :notes => "", :done => false, :date => "", :time => "")
+    
+    #Engine/Misc. & Other
+    service_request.request_fields.create(:name => "Light Bulb(s):", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Body Panel(s):", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Oil:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Chemicals:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Other:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Other:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Other:", :notes => "", :done => false, :date => "", :time => "")
+    service_request.request_fields.create(:name => "Other:", :notes => "", :done => false, :date => "", :time => "")
+    
   end
   
 end
