@@ -87,6 +87,8 @@ GEM
       mini_portile (~> 0.5.0)
     pg (0.16.0)
     polyglot (0.3.3)
+    pony (1.5)
+      mail (> 2.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -175,6 +177,7 @@ DEPENDENCIES
   jquery-rails (= 2.0.2)
   lorem
   pg
+  pony
   rails (= 3.2.13)
   rspec-rails (= 2.11.0)
   sass-rails

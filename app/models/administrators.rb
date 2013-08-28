@@ -11,7 +11,7 @@
 
 
 class Administrators < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_token
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_token, :email_password
   has_secure_password
   before_save { |admin| admin.email = email.downcase }
   before_save :create_remember_token
