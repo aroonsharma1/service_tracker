@@ -15,6 +15,3 @@
 //= require dataTables/jquery.dataTables
 //= require bootstrap
 //= require_tree .
-
-jQuery ->
-$('.request_field_date').datepicker (dateFormat: 'dd-mm-yy')
