@@ -4,6 +4,10 @@ class ServiceRequestsController < ApplicationController
   before_filter :correct_user,  only: [:show]
   before_filter :admin_signed_in, only: [:index, :edit, :destroy]
   
+  def search(email)
+    @service_request = ServiceRequest.find_by_email(email)
+  end
+  
   def show
     @service_request = ServiceRequest.find(params[:id])    
   end
@@ -11,9 +15,12 @@ class ServiceRequestsController < ApplicationController
 
   def update
     @service_request = ServiceRequest.find(params[:id])
-    @service_request.update_attributes(service_request_params) #note the use of strong parameters here (required gem)
+    if @service_request.update_attributes(service_request_params) #note the use of strong parameters here (required gem)
       flash[:success] = "Service Request Updated"
       redirect_to @service_request
+    else
+      render 'edit'
+    end
   end
   
   def edit

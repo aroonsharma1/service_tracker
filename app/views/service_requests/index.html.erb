@@ -18,7 +18,7 @@
 				<td><%= link_to service_request.service_request_number, service_request %></td>
 				<td><%= "#{service_request.customer_first_name} #{service_request.customer_last_name}" %></td>
 				<td><%= service_request.description %></td>
-				<td><%= link_to "Edit", edit_service_request_path(service_request) %>	<%= link_to "Delete", service_request, method: :delete, data: { confirm: "You sure? This action can't be undone." } %></td>
+				<td><%= link_to "Edit", edit_service_request_path(service_request), class: 'btn btn-mini btn-danger' %>	<%= link_to "Delete", service_request, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: "You sure? This action can't be undone." } %></td>
 			</tr>
 		</tbody>
 		<% end %>

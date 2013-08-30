@@ -14,8 +14,12 @@
 	  
     <ul><%= f.submit "Find my Service Request", class: "btn btn-large btn-primary btn-block" %></ul>
     <% end %>
-	<div class="center">
-		<h3>Forgot your service request number? Click here.</h3>
+	<div>
+		<ul>Forgot your service request number? Enter your email here.
+				<%= text_field_tag :cusomter_email, params[:customer_email], placeholder: 'Email' %>
+				<%= button_to "Look Up", {action: "search", controller: "service_requests" }, {class: 'btn btn-small btn-primary'} %>
+		</ul>
+		
 	</div>
 	</div>
 </div>

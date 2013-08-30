@@ -9,6 +9,8 @@
       <a class="navbar-brand">
 		  <% if adminsigned_in? %>
 		  	<%= link_to "College Scooters Service Tracker", :service_requests, id: "logo" %></a>
+		  <% elsif retrieved? %>	
+  			<%= link_to "College Scooters Service Tracker", current_service_request, id: "logo" %></a>
 		  <% else %>
 	  		<%= link_to "College Scooters Service Tracker", root_path, id: "logo" %></a>
 		  <% end %>
@@ -17,6 +19,8 @@
 				  
   		  <% if adminsigned_in? %>
             <li><%= link_to "Home", :service_requests %></li>
+		  <% elsif retrieved? %>
+		    <li><%= link_to "Home", current_service_request %></li>	
   		  <% else %>
             <li><%= link_to "Home", root_path %></li>
   		  <% end %>

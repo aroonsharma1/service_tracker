@@ -1,48 +1,85 @@
 <% provide(:title, 'Update Service Request')%>
 <h1>Update Service Request #<%= "#{@service_request.service_request_number}" %> </h1>
+<%= form_for(@service_request) do |f| %>
+<div class="row-fluid"> 
+	<%= render 'shared/error_messages'%>
+</div>
+<h3>General Service Information</h3>
+<div class="row-fluid"> 
+	<div class="span6">
+		<%= f.label :customer_first_name %>
+		<%= f.text_field :customer_first_name %>
+		
+		<%= f.label :customer_last_name %>
+		<%= f.text_field :customer_last_name %>
+		
+		<%= f.label :customer_email %>
+		<%= f.text_field :customer_email %>
+	</div>
+	<div class="span6">
+		<%= f.label :description_of_work %>
+		<%= f.text_field :description %>
+		
+		<%= f.label :initiated %>
+		<%= f.radio_button :status, "1"%>
+		
+		<%= f.label :in_progress %>
+		<%= f.radio_button :status, "2"%>
+		
+		<%= f.label :completed %>
+		<%= f.radio_button :status, "3"%>
+	</div>
+</div>
 <div class="row-fluid">
-  <div class="span6 offset3">
-    <%= form_for(@service_request) do |f| %>
-	  <%= render 'shared/error_messages'%>
-	  
-	  <%= f.label :customer_first_name %>
-	  <%= f.text_field :customer_first_name %>
-	  
-	  <%= f.label :customer_last_name %>
-	  <%= f.text_field :customer_last_name %>
-	  
-	  <%= f.label :customer_email %>
-	  <%= f.text_field :customer_email %>
-
-      <%= f.label :description_of_work %>
-      <%= f.text_area :description, size: '50x10' %>
-
-      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>  
+	<div class="span3">
+		<h3>Required Services</h3>
+	    <!--  The line below assures that the form gets printed in sorted order. Hooray -->
+		<%= f.fields_for :request_fields, f.object.request_fields.order(:id).first(15) do |builder| %>
+		<div class="checkbox inline">
+			<%= builder.check_box :done %> 
+			<%= builder.label builder.object[:name]%>
+		</div></br>
+		<% end %>
+	</div>
+	<div class="span9">
+		<h3>List all parts used below. Be specific and include part #</h3></br>
+		<div class="span3">
+			<h4>Electrical</h4>
+		    <!--  The line below assures that the form gets printed in sorted order. Hooray -->
+			<%= f.fields_for :request_fields, f.object.request_fields.order(:id).drop(15).first(8) do |builder| %>
+			<div class="checkbox inline">
+				<%= builder.check_box :done %>
+				<%= builder.label builder.object[:name] %>
+				<%= builder.text_field :notes %>
+			</div></br>
+			<% end %>
+		</div>
+		<div class="span3">
+			<h4>Fuel/Air</h4>
+		    <!--  The line below assures that the form gets printed in sorted order. Hooray -->
+			<%= f.fields_for :request_fields, f.object.request_fields.order(:id).drop(23).first(6) do |builder| %>
+			<div class="checkbox inline">
+				<%= builder.check_box :done %>
+				<%= builder.label builder.object[:name] %>
+				<%= builder.text_field :notes %>
+			</div></br>
+			<% end %>
+		</div>
+		<div class="span3">
+			<h4>Engine, Misc, & Other</h4>
+		    <!--  The line below assures that the form gets printed in sorted order. Hooray -->
+			<%= f.fields_for :request_fields, f.object.request_fields.order(:id).drop(29) do |builder| %>
+			<div class="checkbox inline">
+				<%= builder.check_box :done %>
+				<%= builder.label builder.object[:name] %>
+				<%= builder.text_field :notes %>
+			</div></br>
+			<% end %>
+		</div>
+	</div>
 </div>
 
-<div class="row">
-  <div class="span3 offset0">
-    <%= form_for(@service_request) do |f| %>
-	  <%= render 'shared/error_messages'%>
-	  
-	  <!--  The line below assures that the form gets printed in sorted order. Hooray -->
-	  <%= f.fields_for :request_fields, f.object.request_fields.order(:id) do |builder| %>
-	  <ul><%= builder.text_field :name, :readonly => true, :style => "text-align: Center" %></ul>
-	  <% end %>
-    <% end %>
-  </div>
-  
-  <div class="span3 offset0">
-    <%= form_for(@service_request) do |f| %>
-	  <%= render 'shared/error_messages'%>
-	  
-	  <!--  The line below assures that the form gets printed in sorted order. Hooray -->
-	  <%= f.fields_for :request_fields, f.object.request_fields.order(:id) do |builder| %>
-  	  <ul><%= builder.text_field :notes %></ul>
-	  <% end %>
-	  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+<div class="row-fluid">
+	<%= f.submit "Update", class: "btn btn-large btn-primary" %>
 </div>
+<% end %>
