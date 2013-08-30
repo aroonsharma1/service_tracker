@@ -4,7 +4,7 @@ class ForgotSessionsController < ApplicationController
   end
   
   def create
-    service_request = ServiceRequest.find_by_customer_email(params[:forgot_session][:customer_email])
+    service_request = ServiceRequest.find_by_customer_email(params[:forgot_session][:customer_email].downcase)
     if service_request
       flash[:success] = 'An email with your service request has been sent to this address'
       admin_send_email(service_request.customer_email,service_request.service_request_number,2) 
