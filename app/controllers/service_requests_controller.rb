@@ -4,9 +4,6 @@ class ServiceRequestsController < ApplicationController
   before_filter :correct_user,  only: [:show]
   before_filter :admin_signed_in, only: [:index, :edit, :destroy]
   
-  def search(email)
-    @service_request = ServiceRequest.find_by_email(email)
-  end
   
   def show
     @service_request = ServiceRequest.find(params[:id])    
@@ -41,7 +38,7 @@ class ServiceRequestsController < ApplicationController
       #retrieve @service_request  (admins dont need to be doubly signed in when creating a request)
       initialize_request_form(@service_request)
       flash[:success] = "Created new service request with new number #{@service_request[:service_request_number]}!"
-      admin_send_email(@service_request.customer_email,serv)      
+      admin_send_email(@service_request.customer_email,serv,1)      
       redirect_to @service_request
     else
       render 'new'

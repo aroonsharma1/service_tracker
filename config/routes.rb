@@ -4,6 +4,7 @@ ServiceTracker::Application.routes.draw do
   resources :service_requests
   resources :sessions, only: [:new, :create, :destroy]
   resources :administrator_sessions, only: [:new, :create, :destroy]
+  resources :forgot_sessions, only: [:new, :create, :destroy]
     
   root to: 'static_pages#home'
       
@@ -14,7 +15,6 @@ ServiceTracker::Application.routes.draw do
   match '/retrieve_request', to: 'sessions#new' #equivalent to signing in
   match '/signout', to: 'sessions#destroy', via: :delete #signing out
   match '/adminsignout', to: "administrator_sessions#destroy", via: :delete #signing out admins
-  match '/forgot', to: 'service_requests#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

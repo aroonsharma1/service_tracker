@@ -7,20 +7,21 @@
 	<%= form_for(:session, url: sessions_path) do |f| %>
 
 	<ul><%= f.label :email %>
-      	<%= f.text_field :email, length: 30 %></ul>
+      	<%= f.text_field :email, length: 30, placeholder: "Email" %></ul>
 
 	<ul><%= f.label :service_request_number %>
-      	<%= f.text_field :service_request_number %></ul>
+      	<%= f.text_field :service_request_number, placeholder: "Service Request Number" %></ul>
 	  
     <ul><%= f.submit "Find my Service Request", class: "btn btn-large btn-primary btn-block" %></ul>
     <% end %>
-	<div>
-		<ul>Forgot your service request number? Enter your email here.
-				<%= text_field_tag :cusomter_email, params[:customer_email], placeholder: 'Email' %>
-				<%= button_to "Look Up", {action: "search", controller: "service_requests" }, {class: 'btn btn-small btn-primary'} %>
-		</ul>
-		
-	</div>
+		<div>
+			<%= form_for(:forgot_session, url: forgot_sessions_path) do |nested| %>
+			<ul><%= nested.label :customer_email, "Forgot your service request number? Enter your email here." %>
+		      	<%= nested.text_field :customer_email, length: 30, placeholder: "Email" %></ul>
+				
+			<ul><%= nested.submit "Look Up", class: "btn btn-small" "btn btn-primary"%></ul>
+			<%end%>
+			
+		</div>
 	</div>
 </div>
-
