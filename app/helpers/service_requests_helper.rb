@@ -1,5 +1,22 @@
 module ServiceRequestsHelper
   
+  #crude implementation of estimated time of completion
+  #this function assumes that service requests are handled in somewhat chronological order
+  def ahead_in_queue(service_request)
+    #loop through all service requests except the one passed in
+    #if status is "in progress" or "date created" is before service_request's increment counter
+    #return counter
+    num_ahead = 0
+    ServiceRequest.all.each do |f|
+      if f == service_request
+        next
+      elsif f.status == 2 || (f.created_at < service_request.created_at && f.status != 3)
+        num_ahead += 1
+      end
+    end
+    num_ahead
+  end
+  
   def compute_serv_num(service_request)
     #Generate service request number from time and id in database
     id = service_request.id

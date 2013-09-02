@@ -1,6 +1,41 @@
 <% provide(:title, "Service Request Number #{@service_request[:service_request_number]}")%>
-<ul>Customer Name: <%= @service_request.customer_first_name + " " + @service_request.customer_last_name%></ul>
-<ul>Customer Email: <%= @service_request.customer_email %></ul>
-<ul>Description: <%= @service_request.description %></ul>
-<ul>Status: <%= @service_request.status %></ul>
-<ul>Service Request Number: <%= @service_request.service_request_number %></ul> 
+
+<h1>Service Request #<%= "#{@service_request.service_request_number}" %> Summary</h1>
+<div class="row">
+	<div class="span12 offset4">
+<dl class="dl-horizontal">
+	<dt>Customer Name:</dt>
+	<dd><%= @service_request.customer_first_name + " " + @service_request.customer_last_name%></dd></br>
+	<br><dt>Date Created:</dt>
+	<dd><%= @service_request.created_at.strftime("%I:%M%p on %m/%d/%Y") %></dd></br>
+	<br><dt>Last Updated:</dt>
+	<dd><%= @service_request.updated_at.strftime("%I:%M%p on %m/%d/%Y") %></dd></br>
+	<br><dt>Description of Work:</dt>
+	<dd><%= @service_request.description %></dd></br>
+	<br><dt>Services Required:</dt>
+	<% @service_request.request_fields.order(:id).first(15).each do |f| %>
+		<% if f.done? %>
+			<dd><%= f.name %></dd></br>
+		<% end %>
+	<% end %>
+	<br><dt>Parts Used:</dt>
+	<% @service_request.request_fields.order(:id).drop(15).first(22).each do |f| %>
+		<% if f.done? %>
+			<dd><%= f.name %><%= f.notes %></dd></br>
+		<% end %>
+	<% end %>
+	<br><dt>Status:</dt>
+	
+	<dd><%= @service_request.status %></dd>
+	<dd><%=image_tag("horizontal_stoplight_post_card-r0ca7874393f94c8f8681c7d67b16c8b9_vgbaq_8byvr_512.jpg", size: "120x120")%></dd></br>
+</dl>
+<dd>There 
+		<% if ahead_in_queue(@service_request) == 1 %> 
+			<%= "is "%>
+		<% else %>
+			<%= "are" %>
+		<% end %>
+		
+		<%= pluralize(ahead_in_queue(@service_request), 'service request') %> being serviced ahead of yours.</dd>
+	</div>
+</div>

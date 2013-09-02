@@ -129,6 +129,13 @@ footer {
 }
 
 /*  miscellaneous */
+
+.dl-horizontal dt 
+{
+    text-overflow: hidden; 
+	font-size: 16px;
+}
+
 .checkbox {
 	display: inline;
 }

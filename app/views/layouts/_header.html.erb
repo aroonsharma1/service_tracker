@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-left">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -8,9 +8,9 @@
       </a>
       <a class="navbar-brand">
 		  <% if adminsigned_in? %>
-		  	<%= link_to "College Scooters Service Tracker", :service_requests, id: "logo" %></a>
+		  	<%= link_to "College Scooters Service Tracker", :service_requests, id: "logo" %>
 		  <% elsif retrieved? %>	
-  			<%= link_to "College Scooters Service Tracker", current_service_request, id: "logo" %></a>
+  			<%= link_to "College Scooters Service Tracker", current_service_request, id: "logo" %>
 		  <% else %>
 	  		<%= link_to "College Scooters Service Tracker", root_path, id: "logo" %></a>
 		  <% end %>

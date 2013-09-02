@@ -13,6 +13,9 @@ class ServiceRequestsController < ApplicationController
   def update
     @service_request = ServiceRequest.find(params[:id])
     if @service_request.update_attributes(service_request_params) #note the use of strong parameters here (required gem)
+      if @service_request.status == 3 #if completed send email to user
+        admin_send_email(@service_request, 3)
+      end
       flash[:success] = "Service Request Updated"
       redirect_to @service_request
     else
@@ -38,7 +41,7 @@ class ServiceRequestsController < ApplicationController
       #retrieve @service_request  (admins dont need to be doubly signed in when creating a request)
       initialize_request_form(@service_request)
       flash[:success] = "Created new service request with new number #{@service_request[:service_request_number]}!"
-      admin_send_email(@service_request.customer_email,serv,1)      
+      admin_send_email(@service_request,1)      
       redirect_to @service_request
     else
       render 'new'
@@ -63,7 +66,7 @@ class ServiceRequestsController < ApplicationController
   end
   
   def admin_signed_in
-    redirect_to root_path, notice: "Not allowed to see index!." unless adminsigned_in?
+    redirect_to root_path unless adminsigned_in?
   end
   
   def correct_user
