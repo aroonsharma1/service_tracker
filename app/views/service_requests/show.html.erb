@@ -26,8 +26,16 @@
 	<% end %>
 	<br><dt>Status:</dt>
 	
-	<dd><%= @service_request.status %></dd>
-	<dd><%=image_tag("horizontal_stoplight_post_card-r0ca7874393f94c8f8681c7d67b16c8b9_vgbaq_8byvr_512.jpg", size: "120x120")%></dd></br>
+	<!--<dd><%= @service_request.status %></dd>-->
+	<% status = @service_request.status%>
+	<% if status == 1%>
+	<dd><%=image_tag("red_stoplight.jpg", size: "120x120")%></dd>
+	<% elsif status == 2%>
+	<dd><%=image_tag("yellow_stoplight.jpg", size: "120x120")%></dd>
+	<% elsif status == 3%>
+	<dd><%=image_tag("green_stoplight.jpg", size: "120x120")%></dd>
+	<% end %>
+</br>
 </dl>
 <dd>There 
 		<% if ahead_in_queue(@service_request) == 1 %> 
