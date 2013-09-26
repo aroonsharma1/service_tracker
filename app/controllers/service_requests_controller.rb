@@ -2,7 +2,7 @@ class ServiceRequestsController < ApplicationController
   
   before_filter :signed_in_user, only:  [:show]
   before_filter :correct_user,  only: [:show]
-  before_filter :admin_signed_in, only: [:index, :edit, :destroy]
+  before_filter :admin_signed_in, only: [:index, :edit, :destroy, :new]
   
   
   def show
